@@ -1,5 +1,6 @@
 <?php
-// https://leetcode.com/problems/two-sum/description/
+
+// DESCRIPTION: https://leetcode.com/problems/two-sum/description/
 
 // Solution 1
 
