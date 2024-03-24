@@ -20,19 +20,45 @@
 // }
 // return false;
 
-// $s = "()[]";
-// $s = "()[]{}";
-// $s = "([)]"; // 1212
-// $s = "([])()"; //1221
-// $s = "(]"; //312213
-// $s = "{([]})"; //312231
-// $s = "()"; //11
-$s = "((";
-// $s = "(}{)";
+// Best Solution: 
+
+// $pattern = [
+//     '(' => ')',
+//     '[' => ']',
+//     '{' => '}',
+// ];
+
+// $length = strlen($s);
+// $tempArray = [];
+// for ($i = 0; $i < $length; $i++) {
+//     if (array_key_exists($s[$i], $pattern)) {
+//         $tempArray[] = $pattern[$s[$i]];
+//     } elseif (array_pop($tempArray) !== $s[$i]) {
+//         return false;
+//     }
+// }
+// return count($tempArray) === 0;
+
+$s = "(}{)";
 
 function isValid($s)
 {
-    
+    $pattern = [
+        '(' => ')',
+        '[' => ']',
+        '{' => '}',
+    ];
+
+    $length = strlen($s);
+    $tempArray = [];
+    for ($i = 0; $i < $length; $i++) {
+        if (array_key_exists($s[$i], $pattern)) {
+            $tempArray[] = $pattern[$s[$i]];
+        } elseif (array_pop($tempArray) !== $s[$i]) {
+            return false;
+        }
+    }
+    return count($tempArray) === 0;
 }
 
 var_dump(isValid($s));
